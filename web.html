@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Clarke M. Smith Portfolio - Web</title>
+<style type="text/css">
+<!--
+
+
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #323131;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #323131;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~ this fixed width container surrounds all other divs ~~ */
+.container {
+	width: 960px;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+	overflow: hidden; /* this declaration makes the .container understand where the floated columns within ends and contain them */
+}
+
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 178px;
+	padding-bottom: 10px;
+	}
+.content {
+	width: 178;
+	float: left;
+	padding-top: 3px;
+	padding-right: 0;
+	padding-bottom: 3px;
+	padding-left: 0;
+	position: fixed;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 0px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	width: 178px;
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+	width: 200px;
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 178px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	background: #b9d6cc;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12px;
+	font-style: normal;
+	font-family: Verdana, Geneva, sans-serif;
+	width: 178px;
+	background-color: #999999;
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the overflow:hidden on the .container is removed */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.style3 {	font-size: 14px;
+	color: #CCCCCC ;
+}
+.style51 {
+	font-size: 16px;
+	color: #FCA726;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bolder;
+}
+.container1 {
+	width: auto; /* the auto value on the sides, coupled with the width, centers the layout */
+	overflow: hidden; /* this declaration makes the .container understand where the floated columns within ends and contain them */
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+.smaller3 {	font-size: 10px;
+	text-align: left;
+}
+.style31 {
+	font-size: 12px;
+	color: #CCCCCC;
+	width: 111px;
+}
+.style511 {
+	font-size: 12px;
+	color: #CCCCCC;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.fy {
+	color: #b9d6cc;
+}
+-->
+</style></head>
+
+<body bgcolor="#b9d6cc"LEFTMARGIN=0 RIGHTMARGIN=0 TOPMARGIN=0 BOTTOMMARGIN=0>
+
+<table width="1200" height="708" border="0" align="center" background="images/index.jpg">
+  <tr>
+    <th height="702" scope="col"><table width="1061" height="543" border="0" align="left">
+      <tr>
+        <td width="112" height="539" align="left" valign="top" class="fy">jjjjjjjjjjjjjjjjjjjj</td>
+        <td width="196" valign="top"><div class="sidebar1">
+          <ul class="nav">
+            <li><a href="index.html">CORPORATE</a></li>
+            <li><a href="web.html">WEB</a></li>
+            <li><a href="layout.html">LAYOUT</a></li>
+            <li><a href="video.html">VIDEO</a></li>
+            <li><a href="gis.html">GIS</a></li>
+          </ul>
+          <!-- end .sidebar1 -->
+        </div></td>
+        <td width="10">&nbsp;</td>
+        <td width="725" align="left" valign="top"><table width="714" border="0" cellpadding="2" cellspacing="2">
+          <tr>
+            <th width="706" height="22" valign="top" scope="col"><div style="overflow: auto; height: 408px; width: 705px;">
+              <table width="555" border="0" cellpadding="5" cellspacing="3" background="transbox.png">
+                <tr class="style31" >
+                  <th width="641" height="422" valign="top" scope="col"><table width="372" border="0" cellpadding="4">
+                    <tr>
+                      <th width="360" height="70" valign="top" scope="col"><p class="style511"><span class="style3"><span class="style51">WEB</span></span> (click each image to see website)<br />
+                        
+                      </p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/xcpublishing/" target="_blank"><img src="Webgrab0-XC.jpg" alt="" width="627" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/pinnacle/" target="_blank"><img src="Webgrab3-OrangeSci.jpg" alt="" width="531" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/wanderingshadows/" target="_blank"><img src="Webgrab15-WS.jpg" alt="" width="627" height="388" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/centerofhope-haiti/" target="_blank"><img src="Webgrab12-Haiti.jpg" width="531" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/scienomicsgroup/" target="_blank"><img src="Webgrab5-SwirlSci.jpg" width="484" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/scienomicsumbrella/" target="_blank"><img src="Webgrab1-3Sci.jpg" alt="" width="627" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/chulacare/" target="_blank"><img src="Webgrab13-China.jpg" width="531" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/squarredfilms/" target="_blank"><img src="Webgrab6-Stephsite.jpg" alt="" width="531" height="289" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/crazyjoe/" target="_blank"><img src="Webgrab-CJ.jpg" width="588" height="388" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/catalist/" target="_blank"><img src="Webgrab4-Cata.jpg" alt="" width="484" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/" target="_blank"><img src="Webgrab-TAM.jpg" width="604" height="388" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><img src="Webgrab-looseleaf.jpg" width="470" height="432" /></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/rfp-intro/" target="_blank"><img src="Webgrab11-SciRFP.jpg" width="627" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/evolence.swf" target="_blank"><img src="Webgrab7-Evo.jpg" width="484" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/totalhealthcenter/" target="_blank"><img src="Webgrab-TotalHealth.jpg" width="531" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/tsg-xmas2008/" target="_parent"><img src="Webgrab9-TSG2008Xmas.jpg" width="627" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/theetherealplanemovie/" target="_blank"><img src="Webgrab15-EP.jpg" alt="" width="627" height="388" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/shuttingdown/" target="_blank"><img src="Webgrab-SD.jpg" width="470" height="432" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/bodyvibe/" target="_blank"><img src="Webgrab14-BodyVibe.jpg" width="531" height="363" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/flashportfolio/NYCTourist-Banner5.html" target="_blank"><img src="Webgrab16-SDTour.jpg" width="627" height="174" /></a></p>
+                        <p class="style511">&nbsp;</p>
+                        <p class="style511"><a href="http://www.timeaxismedia.com/flashportfolio/PortfolioInFlash.html" target="_blank"><img src="Webgrab-FlashPort.jpg" width="509" height="388" /></a></p></th>
+                    </tr>
+                  </table></th>
+                </tr>
+              </table>
+            </div>              
+            <p>&nbsp;</p></th>
+          </tr>
+        </table></td>
+      </tr>
+    </table></th>
+  </tr>
+</table>
+
+<div></div>
+<p>&nbsp;</p>
+</body>
+</html>

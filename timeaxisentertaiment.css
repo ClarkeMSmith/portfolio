@@ -1,0 +1,34 @@
+BODY {
+	FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: verdana, arial, helvetica
+}
+
+
+a:link {
+	font-style: normal;
+	color: #FFFFFF;
+	TEXT-DECORATION: none
+}
+
+a:active {
+font-style: normal;
+	color: #FFFFFF;
+	TEXT-DECORATION: none
+}
+
+a:visited {
+font-style: normal;
+	color: #FFFFFF;
+	TEXT-DECORATION: none
+	}
+	
+a:hover {
+	font-style: italic;
+	color: #fab614;
+	TEXT-DECORATION: none
+}
+
+
+
+
+
+
